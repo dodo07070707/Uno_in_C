@@ -10,7 +10,7 @@ void gotoxy(int x, int y){
 
 int main(){
     system("Uno in C"); // !게임 이름
-    system("mode con: cols=100, lines=100"); // !콘솔창 크기 
+    system("mode con: cols=100, lines=100"); // !콘솔창 크기
     system("COLOR 06"); //!배경색, 글자색
         
 }
