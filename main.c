@@ -29,9 +29,32 @@ void _printtitle(){
     printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n");
 }
 
+void _printrules(){
+    gotoxy(50,5);
+    printf(".______       __    __   __       _______     _______.\n");
+    gotoxy(50,6);
+    printf("|   _  \\     |  |  |  | |  |     |   ____|   /       |\n");
+    gotoxy(50,7);
+    printf("|  |_)  |    |  |  |  | |  |     |  |__     |   (----`\n");
+    gotoxy(50,8);
+    printf("|      /     |  |  |  | |  |     |   __|     \\   \\    \n");
+    gotoxy(50,9);
+    printf("|  |\\  \\----.|  `--'  | |  `----.|  |____.----)   |   \n");
+    gotoxy(50,10);
+    printf("| _| `._____| \\______/  |_______||_______|_______/    \n");
+    Sleep(1000);
+    gotoxy(40,17);
+    printf("1. 이 게임은 Mattel사에서 생산중인 Uno의 기본 규칙을 따릅니다.");
+    Sleep(500);
+    printf("2. ");
+}
+
 int main(){
     system("title Uno_in_C"); // 프로세스 이름
     system("mode con: cols=200 lines=50"); // !콘솔창 크기
     system("COLOR 0F"); //!배경색, 글자색
     _printtitle();
+    Sleep(1000);
+    system("cls");
+    _printrules();
 }
