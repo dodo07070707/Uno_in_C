@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<windows.h>
 #include<string.h>
+#include<stdbool.h>
 
 struct Pair{
     int num;
@@ -19,52 +20,188 @@ void gotoxy(int x, int y){
 void _setCommonCards(){
     // 0: 빨강 0, 1~18 : 빨강 1~9 2개씩,
     int idx = 0;
-    while(1){
-        //red set
-        // 숫자 0 카드
-        cards_set[idx].num = 0;
+    //red set
+    // 숫자 0 카드
+    cards_set[idx].num = 0;
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = false;
+    idx++;
+    //숫자 1~9 카드
+    for(int i=1;i<=9;i++){
+        cards_set[idx].num = i;
         strcpy(cards_set[idx].color, "red");
         cards_set[idx].isSpecial = false;
         idx++;
-        //숫자 1~9 카드
-        for(int i=1;i<=9;i++){
-            cards_set[idx].num = i;
-            strcpy(cards_set[idx].color, "red");
-            cards_set[idx].isSpecial = false;
-            idx++;
-            cards_set[idx].num = i;
-            strcpy(cards_set[idx].color, "red");
-            cards_set[idx].isSpecial = false;
-            idx++;
-        }
-        //+2 카드
+        cards_set[idx].num = i;
         strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "+2");
-        idx++;
-        strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "+2");
-        idx++;
-        //순서 바꾸기
-        strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "change_order");
-        idx++;
-        strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "change_order");
-        idx++;
-        //건너뛰기
-        strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "skip");
-        idx++;
-        strcpy(cards_set[idx].color, "red");
-        cards_set[idx].isSpecial = true;
-        strcpy(cards_set[idx].property, "skip");
+        cards_set[idx].isSpecial = false;
         idx++;
     }
+    //+2 카드
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    //순서 바꾸기
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    //건너뛰기
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+    strcpy(cards_set[idx].color, "red");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+
+    //yellow set
+    // 숫자 0 카드
+    cards_set[idx].num = 0;
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = false;
+    idx++;
+    //숫자 1~9 카드
+    for(int i=1;i<=9;i++){
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "yellow");
+        cards_set[idx].isSpecial = false;
+        idx++;
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "yellow");
+        cards_set[idx].isSpecial = false;
+        idx++;
+    }
+    //+2 카드
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    //순서 바꾸기
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    //건너뛰기
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+    strcpy(cards_set[idx].color, "yellow");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+
+    //green set
+    // 숫자 0 카드
+    cards_set[idx].num = 0;
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = false;
+    idx++;
+    //숫자 1~9 카드
+    for(int i=1;i<=9;i++){
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "green");
+        cards_set[idx].isSpecial = false;
+        idx++;
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "green");
+        cards_set[idx].isSpecial = false;
+        idx++;
+    }
+    //+2 카드
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    //순서 바꾸기
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    //건너뛰기
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+    strcpy(cards_set[idx].color, "green");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+
+    //blue set
+    // 숫자 0 카드
+    cards_set[idx].num = 0;
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = false;
+    idx++;
+    //숫자 1~9 카드
+    for(int i=1;i<=9;i++){
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "blue");
+        cards_set[idx].isSpecial = false;
+        idx++;
+        cards_set[idx].num = i;
+        strcpy(cards_set[idx].color, "blue");
+        cards_set[idx].isSpecial = false;
+        idx++;
+    }
+    //+2 카드
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "+2");
+    idx++;
+    //순서 바꾸기
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "change_order");
+    idx++;
+    //건너뛰기
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+    strcpy(cards_set[idx].color, "blue");
+    cards_set[idx].isSpecial = true;
+    strcpy(cards_set[idx].property, "skip");
+    idx++;
+
+    //black card set
+
 }
 
 void _printtitle(){

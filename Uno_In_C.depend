@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1699184394 source:c:\users\d0yxn\desktop\uno_in_c\main.c
+1699239948 source:c:\users\d0yxn\desktop\uno_in_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
+	<string.h>
+	<stdbool.h>
 
